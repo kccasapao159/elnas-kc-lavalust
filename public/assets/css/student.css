@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --brand-blue: #2563eb;
+    --brand-blue-dark: #1d4ed8;
+    --minsu-green: #145a32;
+    --minsu-green-dark: #0c3a20;
+    --minsu-gold: #f4c430;
+
+    /* Nude pink surface (replaces plain white cards) */
+    --nude-pink: #f3e1d6;
+    --nude-pink-soft: #f8ece3;
+    --nude-pink-border: #e8cfc0;
+
+    /* Typography: serif display for headings (academic, ID-card feel), Inter for body/UI */
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    font-family: var(--font-body);
+    color: #1f2937;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background:
+        linear-gradient(180deg, rgba(12, 58, 32, 0.88) 0%, rgba(20, 90, 50, 0.82) 45%, rgba(9, 41, 24, 0.92) 100%),
+        url('https://minsu.edu.ph/slider/slides_1.jpg') center / cover no-repeat fixed;
+}
+
+.site-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: rgba(9, 41, 24, 0.55);
+    backdrop-filter: blur(6px);
+    border-bottom: 3px solid var(--minsu-gold);
+}
+
+.site-header img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+}
+
+.site-header .brand-text {
+    text-align: left;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.site-header .brand-text strong {
+    display: block;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+}
+
+.site-header .brand-text span {
+    display: block;
+    font-size: 0.75rem;
+    color: #d9f2e2;
+}
+
+.page-body {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* Used on Home and Confirm ID pages */
+.card {
+    background: var(--nude-pink);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    padding: 2.5rem 3rem;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    color: #111827;
+}
+
+p.lead {
+    color: #6b7280;
+    margin-bottom: 1.75rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   Homepage — student ID / matriculation card aesthetic
+   ========================================================== */
+
+.card--home {
+    max-width: 440px;
+    padding: 2.25rem 2.5rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* thin gold rule along the very top, echoing the site header trim */
+.card--home::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--minsu-green) 0%, var(--minsu-gold) 50%, var(--minsu-green) 100%);
+}
+
+.id-eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--minsu-green);
+    margin-bottom: 1.5rem;
+}
+
+.id-eyebrow .dot {
+    color: var(--minsu-gold);
+    margin: 0 0.4em;
+}
+
+/* Laurel + check seal, echoes the verified-badge from the profile page */
+.id-seal {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    background: var(--minsu-green);
+    border: 3px solid var(--minsu-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(20, 90, 50, 0.25);
+}
+
+.id-seal svg {
+    width: 34px;
+    height: 34px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.card--home h1 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+}
+
+.card--home h1 .accent {
+    color: var(--minsu-green);
+}
+
+.card--home .lead {
+    font-size: 0.95rem;
+}
+
+/* Ticket-stub perforation dividing the greeting from the actions */
+.id-perf {
+    height: 1px;
+    margin: 0 -2.5rem 1.75rem;
+    background-image: repeating-linear-gradient(90deg, var(--nude-pink-border) 0 8px, transparent 8px 16px);
+}
+
+.id-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.btn-primary,
+.btn-ghost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.3rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.btn-primary {
+    background: var(--minsu-green);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--minsu-green-dark);
+    transform: translateY(-1px);
+}
+.btn-primary svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s;
+}
+.btn-primary:hover svg {
+    transform: translateX(3px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--minsu-green);
+    border: 1.5px solid var(--minsu-green);
+}
+.btn-ghost:hover {
+    background: var(--nude-pink-soft);
+}
+
+@media (max-width: 520px) {
+    .card--home {
+        padding: 2rem 1.5rem 2.25rem;
+    }
+    .id-perf {
+        margin: 0 -1.5rem 1.5rem;
+    }
+}
+
+/* Info rows (profile page) */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--nude-pink-border);
+    font-size: 0.95rem;
+    text-align: left;
+}
+.info-row:last-of-type { border-bottom: none; }
+.info-row .label { color: #6b7280; font-weight: 600; flex-shrink: 0; }
+.info-row .value { color: #111827; text-align: right; word-break: break-word; }
+
+/* Navigation buttons */
+nav {
+    margin-top: 1.75rem;
+    text-align: center;
+}
+nav a {
+    display: inline-block;
+    margin: 0 0.4rem;
+    padding: 0.6rem 1.3rem;
+    background: var(--minsu-green);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+nav a:hover { background: var(--minsu-green-dark); }
+nav a.secondary { background: #e5e7eb; color: #111827; }
+nav a.secondary:hover { background: #d1d5db; }
+
+/* Confirm form (student_confirm.php) */
+input[type="text"] {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    background: #fff;
+}
+
+button {
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--minsu-green);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover { background: var(--minsu-green-dark); }
+
+.error {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================
+   Profile photo + verified badge
+   ========================================================== */
+
+.profile-photo-wrap {
+    position: relative;
+    width: 110px;
+    margin: 0 auto 1.25rem;
+}
+
+.profile-img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    border: 3px solid var(--nude-pink-border);
+    background: var(--nude-pink-soft);
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 30px;
+    height: 30px;
+    background: var(--minsu-green);
+    border: 3px solid var(--minsu-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.verified-badge svg {
+    width: 14px;
+    height: 14px;
+    fill: #fff;
+}
+
+/* ==========================================================
+   Profile page — profile photo + info on the side,
+   hobbies / skills / social grouped in the center
+   ========================================================== */
+
+.profile-card {
+    background: var(--nude-pink);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    align-items: stretch;
+}
+
+.profile-col {
+    padding: 2rem 1.75rem;
+}
+
+/* Divider between the side (photo+info) and center columns */
+.profile-col + .profile-col {
+    border-left: 1px solid var(--nude-pink-border);
+}
+
+/* Side column: photo on top, information below it */
+.profile-col--photo {
+    text-align: center;
+    padding: 2.5rem 2rem;
+}
+
+.profile-col--photo h1 {
+    font-size: 1.3rem;
+}
+
+/* Center column: hobbies, skills, social media stacked */
+.profile-col--center {
+    padding: 2.5rem 2.5rem;
+}
+
+.center-section + .center-section {
+    margin-top: 1.75rem;
+}
+
+.profile-col--center h2 {
+    font-size: 1rem;
+    color: #111827;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--minsu-green);
+}
+
+.tag-list,
+.social-list {
+    list-style: none;
+}
+
+.tag-list li {
+    background: var(--nude-pink-soft);
+    color: var(--minsu-green);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================================
+   Social media — compact, icon-only row
+   ========================================================== */
+
+.social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.social-list li {
+    margin: 0;
+}
+
+.social-list a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: var(--nude-pink-soft);
+    border: 1px solid var(--nude-pink-border);
+    border-radius: 50%;
+    text-decoration: none;
+    color: #111827;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.social-list a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.social-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+/* Screen-reader-only label so links stay accessible without visible text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.social-list a.facebook  { color: #1877f2; }
+.social-list a.facebook:hover  { background: #e7f0fe; }
+.social-list a.github    { color: #111827; }
+.social-list a.github:hover    { background: #eceff1; }
+.social-list a.instagram { color: #d62976; }
+.social-list a.instagram:hover { background: #fbe9f0; }
+
+/* ==========================================================
+   Responsive breakpoints
+   ========================================================== */
+
+@media (max-width: 900px) {
+    .profile-card {
+        grid-template-columns: 1fr;
+    }
+    .profile-col + .profile-col {
+        border-left: none;
+        border-top: 1px solid var(--nude-pink-border);
+    }
+    .profile-col--center .social-list {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 520px) {
+    .page-body { padding: 1.25rem 0.5rem; }
+
+    .site-header { padding: 0.75rem 1rem; }
+    .site-header img { height: 32px; width: 32px; }
+    .site-header .brand-text strong { font-size: 0.9rem; }
+    .site-header .brand-text span { font-size: 0.65rem; }
+
+    .card {
+        padding: 1.75rem 1.25rem;
+        border-radius: 10px;
+    }
+
+    .profile-col {
+        padding: 1.5rem 1.25rem;
+    }
+
+    h1 { font-size: 1.4rem; }
+
+    .info-row {
+        font-size: 0.85rem;
+        flex-direction: column;
+        gap: 0.15rem;
+        background: var(--nude-pink-soft);
+        border: 1px solid var(--nude-pink-border);
+        border-bottom: 1px solid var(--nude-pink-border);
+        border-radius: 8px;
+        padding: 0.6rem 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-row:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .info-row .label {
+        font-weight: 700;
+        color: var(--minsu-green-dark);
+    }
+
+    .info-row .value {
+        text-align: left;
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .profile-photo-wrap {
+        width: 90px;
+    }
+
+    .profile-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .verified-badge {
+        width: 24px;
+        height: 24px;
+        bottom: 0;
+        right: 0;
+    }
+    .verified-badge svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    nav a {
+        display: block;
+        margin: 0.4rem 0;
+    }
+}

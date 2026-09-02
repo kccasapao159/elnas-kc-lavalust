@@ -747,5 +747,6 @@ button:hover { background: var(--minsu-green-dark); }
     nav a {
         display: block;
         margin: 0.4rem 0;
+        
     }
 }

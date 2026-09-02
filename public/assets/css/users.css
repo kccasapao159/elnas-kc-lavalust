@@ -1,0 +1,163 @@
+/* ==========================================================================
+   users.css
+   Styles for users_view.php (Users list page)
+   Shares the resume/paper theme + color tokens defined in student.css so
+   both pages feel like one continuous site.
+   ========================================================================== */
+
+:root {
+    --resume-paper: #fbf8f2;
+    --resume-paper-line: #e7e1d2;
+    --resume-ink: #262420;
+    --resume-ink-muted: #6b6558;
+    --resume-gold: #b8860b;
+    --resume-gold-soft: #f1e4c3;
+    --minsu-green: #145a32;
+    --minsu-green-dark: #0c3a20;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body.users-body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: var(--resume-paper);
+    color: var(--resume-ink);
+}
+
+/* --- Header (matches site-header on student pages) --- */
+.users-header {
+    background: var(--minsu-green);
+    color: #fff;
+    padding: 1.75rem 2rem;
+    border-bottom: 3px solid var(--resume-gold);
+}
+
+.users-header-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.users-header p.users-kicker {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--resume-gold);
+    margin: 0 0 0.5rem;
+}
+
+.users-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 800;
+    margin: 0 0 0.4rem;
+    font-size: 1.9rem;
+}
+
+.users-header p.users-subtitle {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.92rem;
+}
+
+/* --- Container / card --- */
+.users-container {
+    max-width: 1000px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+.users-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.users-back-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--minsu-green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--minsu-green);
+}
+
+.users-back-link:hover {
+    color: var(--resume-gold);
+    border-color: var(--resume-gold);
+}
+
+.users-card {
+    background: #fff;
+    border: 1px solid var(--resume-paper-line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table thead {
+    background: var(--resume-gold-soft);
+}
+
+.users-table th {
+    text-align: left;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--minsu-green-dark);
+    border-bottom: 1px solid var(--resume-paper-line);
+}
+
+.users-table td {
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--resume-paper-line);
+    font-size: 0.95rem;
+    color: var(--resume-ink);
+}
+
+.users-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.users-table tbody tr:hover {
+    background: #faf7ef;
+}
+
+.users-id-badge {
+    display: inline-block;
+    min-width: 24px;
+    padding: 2px 10px;
+    background: var(--resume-gold-soft);
+    color: var(--minsu-green-dark);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.users-username {
+    color: var(--resume-ink-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.users-empty {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: var(--resume-ink-muted);
+}
+
+.users-footer-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--resume-ink-muted);
+    text-align: right;
+}

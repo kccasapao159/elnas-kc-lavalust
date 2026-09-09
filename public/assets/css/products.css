@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --minsu-green: #145a32;
+    --minsu-green-dark: #0c3a20;
+    --minsu-gold: #f4c430;
+
+    /* Nude pink palette */
+    --nude-pink: #f3e1d6;
+    --nude-pink-soft: #f8ece3;
+    --nude-pink-border: #e8cfc0;
+    --nude-pink-deep: #e3b8a6;
+    --nude-pink-text: #6b4636;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+html, body { min-height: 100vh; }
+
+body {
+    font-family: var(--font-body);
+    color: #3a2b23;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    /* Nude-pink background — a soft, layered gradient with a faint
+       centered logo watermark, replacing the old campus-photo background. */
+    background:
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, var(--nude-pink-soft) 0%, var(--nude-pink) 55%, var(--nude-pink-deep) 100%);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: url('https://minsu.edu.ph/template/images/logo.png') center 40% / 280px no-repeat;
+    opacity: 0.09;
+}
+
+/* ---------- Top navigation (logo left, admin actions top right) ---------- */
+.site-header {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(8px);
+    border-bottom: 3px solid var(--nude-pink-deep);
+}
+
+.site-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.site-header .brand-logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--nude-pink);
+    border: 2px solid var(--nude-pink-deep);
+}
+
+.site-header .brand-logo-fallback {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--minsu-green);
+    color: var(--minsu-gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    border: 2px solid var(--minsu-gold);
+}
+
+.site-header .brand-text { line-height: 1.15; }
+.site-header .brand-text strong { display: block; font-size: 1rem; font-family: var(--font-display); }
+.site-header .brand-text span { display: block; font-size: 0.72rem; color: var(--nude-pink-text); }
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.top-nav a, .top-nav button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--nude-pink-deep);
+    background: #fff;
+    color: var(--nude-pink-text);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.top-nav a:hover, .top-nav button:hover {
+    background: var(--nude-pink-deep);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.top-nav .btn-admin-login {
+    background: var(--minsu-green);
+    border-color: var(--minsu-green);
+    color: #fff;
+}
+.top-nav .btn-admin-login:hover { background: var(--minsu-green-dark); }
+
+.top-nav .admin-pill {
+    background: var(--nude-pink-soft);
+    color: var(--nude-pink-text);
+    font-weight: 600;
+    border-style: dashed;
+}
+
+/* ---------- Page shell ---------- */
+.page-body {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2.5rem 1.25rem;
+}
+
+.panel {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--nude-pink-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(107, 70, 54, 0.15);
+    padding: 2rem 2.25rem;
+    width: 100%;
+}
+
+.panel--narrow { max-width: 420px; }
+.panel--wide { max-width: 960px; }
+
+.panel h1 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--nude-pink-text);
+    margin-bottom: 0.35rem;
+}
+
+.panel .subtitle {
+    font-size: 0.9rem;
+    color: #7a6155;
+    margin-bottom: 1.5rem;
+}
+
+/* ---------- Alerts ---------- */
+.alert {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+}
+.alert-error   { background: #fde3e3; color: #a3261f; border: 1px solid #f3b6b6; }
+.alert-success { background: #e3f4e6; color: #1f6b34; border: 1px solid #b6e3c0; }
+
+/* ---------- Forms ---------- */
+.form-group { margin-bottom: 1.1rem; }
+.form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--nude-pink-text);
+    margin-bottom: 0.4rem;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    border: 1px solid var(--nude-pink-border);
+    background: #fffaf7;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: #3a2b23;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--nude-pink-deep);
+    box-shadow: 0 0 0 3px rgba(227, 184, 166, 0.35);
+}
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-row { display: flex; gap: 1rem; }
+.form-row .form-group { flex: 1; }
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.3rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+.btn-primary { background: var(--minsu-green); color: #fff; }
+.btn-primary:hover { background: var(--minsu-green-dark); }
+.btn-secondary { background: var(--nude-pink-deep); color: #fff; }
+.btn-secondary:hover { background: #cf9c86; }
+.btn-ghost { background: transparent; color: var(--nude-pink-text); border: 1px solid var(--nude-pink-border); }
+.btn-ghost:hover { background: var(--nude-pink-soft); }
+.btn-danger { background: #c0392b; color: #fff; }
+.btn-danger:hover { background: #992d22; }
+.btn-full { width: 100%; }
+
+/* ---------- Product table ---------- */
+.product-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.product-table-wrap { overflow-x: auto; }
+
+table.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.product-table thead th {
+    text-align: left;
+    padding: 0.75rem 0.9rem;
+    background: var(--nude-pink);
+    color: var(--nude-pink-text);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.product-table tbody td {
+    padding: 0.75rem 0.9rem;
+    border-bottom: 1px solid var(--nude-pink-border);
+    vertical-align: top;
+}
+
+.product-table tbody tr:hover { background: rgba(243, 225, 214, 0.35); }
+
+.product-table .row-actions { display: flex; gap: 0.5rem; }
+.product-table .row-actions form { display: inline; }
+
+.badge-qty {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background: var(--nude-pink-soft);
+    color: var(--nude-pink-text);
+    font-weight: 600;
+    font-size: 0.78rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: #8a7267;
+}
+
+.footer-note {
+    position: relative;
+    z-index: 1;
+    font-size: 0.78rem;
+    color: var(--nude-pink-text);
+    padding: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .site-header { flex-direction: column; align-items: flex-start; }
+    .top-nav { width: 100%; justify-content: flex-start; }
+    .panel { padding: 1.5rem; }
+    .form-row { flex-direction: column; }
+}

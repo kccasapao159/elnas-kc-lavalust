@@ -25,6 +25,8 @@ $error = $error ?? null;
 
             <form method="POST" action="<?= site_url('admin/login'); ?>">
                 <div class="form-group">
+                    <h3>admin</h3>
+                     <h3>Admin@12345</h3>
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" autocomplete="username" required autofocus>
                 </div>

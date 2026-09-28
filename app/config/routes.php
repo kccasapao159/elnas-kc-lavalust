@@ -49,3 +49,21 @@ $router->get('/student/confirm', 'StudentController::confirm');
 $router->post('/student/confirm', 'StudentController::verify');
 $router->get('/users', 'UserController::index');
 $router->get('/student/profile', 'StudentController::profile')->middleware('student_access');
+
+/*
+| -------------------------------------------------------------------
+| Lab 5 — Admin Auth + Product CRUD
+| -------------------------------------------------------------------
+*/
+$router->get('/admin/login', 'AuthController::loginForm');
+$router->post('/admin/login', 'AuthController::login');
+$router->get('/admin/logout', 'AuthController::logout');
+$router->get('/admin/profile', 'AuthController::profile')->middleware('admin_auth');
+
+$router->get('/products', 'ProductController::index')->middleware('admin_auth');
+$router->get('/products/create', 'ProductController::create')->middleware('admin_auth');
+$router->post('/products/create', 'ProductController::store')->middleware('admin_auth');
+$router->get('/products/archive', 'ProductController::archive')->middleware('admin_auth');
+$router->get('/products/edit/{id}', 'ProductController::edit')->middleware('admin_auth');
+$router->post('/products/edit/{id}', 'ProductController::update')->middleware('admin_auth');
+$router->post('/products/delete/{id}', 'ProductController::delete')->middleware('admin_auth');

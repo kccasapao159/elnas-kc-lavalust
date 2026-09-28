@@ -11,6 +11,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 </head>
 <body>
 
+    <?php include APP_DIR . 'views/_topnav.php'; ?>
+
     <div class="card card--home">
 
         <span class="id-eyebrow">Mindoro State University<span class="dot">&middot;</span>Calapan City Campus</span>

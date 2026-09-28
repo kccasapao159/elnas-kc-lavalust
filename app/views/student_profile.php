@@ -59,13 +59,7 @@ function social_icon($label)
 </head>
 <body>
 
-<header class="site-header">
-    <img src="https://minsu.edu.ph/template/images/logo.png" alt="MinSU Logo">
-    <div class="brand-text">
-        <strong>Mindoro State University</strong>
-        <span>Calapan City Campus</span>
-    </div>
-</header>
+<?php include APP_DIR . 'views/_topnav.php'; ?>
 
 <main class="page-body">
 <div class="profile-card">

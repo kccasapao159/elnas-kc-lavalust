@@ -32,20 +32,33 @@ body {
     align-items: center;
 
     background:
-        linear-gradient(180deg, rgba(12, 58, 32, 0.88) 0%, rgba(20, 90, 50, 0.82) 45%, rgba(9, 41, 24, 0.92) 100%),
-        url('https://minsu.edu.ph/slider/slides_1.jpg') center / cover no-repeat fixed;
+        radial-gradient(circle at 50% 15%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, var(--nude-pink-soft) 0%, var(--nude-pink) 55%, #e3b8a6 100%);
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: url('https://minsu.edu.ph/template/images/logo.png') center 38% / 260px no-repeat;
+    opacity: 0.09;
 }
 
 .site-header {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 0.75rem;
     padding: 1rem 1.5rem;
-    background: rgba(9, 41, 24, 0.55);
-    backdrop-filter: blur(6px);
-    border-bottom: 3px solid var(--minsu-gold);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    border-bottom: 3px solid var(--nude-pink-border);
+    position: relative;
+    z-index: 2;
 }
 
 .site-header img {
@@ -56,7 +69,7 @@ body {
 
 .site-header .brand-text {
     text-align: left;
-    color: #fff;
+    color: #3a2b23;
     line-height: 1.2;
 }
 
@@ -69,8 +82,88 @@ body {
 .site-header .brand-text span {
     display: block;
     font-size: 0.75rem;
-    color: #d9f2e2;
+    color: #7a6155;
 }
+
+.site-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+}
+
+.brand-logo-fallback {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--minsu-green);
+    color: var(--minsu-gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: 2px solid var(--minsu-gold);
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid var(--nude-pink-border);
+    flex-shrink: 0;
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.top-nav a, .top-nav button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--nude-pink-border);
+    background: #fff;
+    color: #6b4636;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.top-nav a:hover, .top-nav button:hover {
+    background: #e3b8a6;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.top-nav .btn-admin-login {
+    background: var(--minsu-green);
+    border-color: var(--minsu-green);
+    color: #fff;
+}
+.top-nav .btn-admin-login:hover { background: var(--minsu-green-dark); }
+
+.top-nav .admin-pill {
+    background: var(--nude-pink-soft);
+    color: #6b4636;
+    font-weight: 600;
+    border-style: dashed;
+    cursor: default;
+}
+.top-nav .admin-pill:hover { background: var(--nude-pink-soft); color: #6b4636; transform: none; }
 
 .page-body {
     flex: 1;

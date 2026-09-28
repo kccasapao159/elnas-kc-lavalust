@@ -350,9 +350,11 @@ $config['csrf_expire']             = 7200;
 $config['csrf_regenerate']         = FALSE;
 
 require_once APP_DIR . 'middlewares/StudentMiddlewareMiddleware.php';
+require_once APP_DIR . 'middlewares/AdminAuthMiddleware.php';
 
 $config['middlewares'] = [
 	'student_access' => new StudentMiddlewareMiddleware(),
+	'admin_auth'      => new AdminAuthMiddleware(),
 ];
 
 ?>

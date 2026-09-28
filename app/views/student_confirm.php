@@ -10,6 +10,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 <title>Confirm Student ID</title>
 </head>
 <body>
+<?php include APP_DIR . 'views/_topnav.php'; ?>
 <div class="card">
 <h1>Confirm Your Identity</h1>
 <p class="lead">Pleas Enter Student ID to view the profile page.</p>
